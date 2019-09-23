@@ -9,7 +9,8 @@ public class Topic implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "topic_id")
     private int topicId;
 
@@ -18,6 +19,15 @@ public class Topic implements Serializable {
 
     @Column(name = "category", length = 100, nullable = false)
     private String category;
+
+    public Topic() {
+    }
+
+    public Topic(int topicId,String title, String category) {
+        this.topicId=topicId;
+        this.title = title;
+        this.category = category;
+    }
 
     public int getTopicId() {
         return topicId;
